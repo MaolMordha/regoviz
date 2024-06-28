@@ -6,7 +6,7 @@ mod is_defined;
 mod make_object;
 mod not_equal;
 mod object_insert;
-mod parameter;
+pub mod parameter;
 mod reset_local;
 mod result_set_add;
 mod return_local;

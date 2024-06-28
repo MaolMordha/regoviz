@@ -1,6 +1,6 @@
 use serde_derive::Deserialize;
 
-use super::parameter::{LocalParameter, Parameter, StringParameter};
+use super::parameter::{LocalParameter, OperandParameter, Parameter, StringParameter};
 
 #[derive(Deserialize, Debug)]
 pub struct Call {
@@ -8,7 +8,7 @@ pub struct Call {
     function_name: StringParameter,
 
     #[serde(rename = "args")]
-    arguments: Vec<Parameter>,
+    arguments: Vec<OperandParameter>,
 
     result: LocalParameter,
 }

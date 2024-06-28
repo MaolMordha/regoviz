@@ -1,4 +1,5 @@
 mod block;
+mod function;
 mod ostatic;
 mod plan;
 mod statement;
@@ -6,6 +7,12 @@ mod statement;
 use std::error::Error;
 
 use serde_derive::Deserialize;
+
+#[derive(Deserialize, Debug)]
+pub struct Functions {
+    #[serde(rename = "funcs")]
+    functions: Vec<function::Function>,
+}
 
 #[derive(Deserialize, Debug)]
 pub struct Plans {
@@ -16,6 +23,8 @@ pub struct Plans {
 pub struct Policy {
     r#static: ostatic::Static,
     plans: Plans,
+    #[serde(rename = "funcs")]
+    functions: Functions,
 }
 
 impl Policy {
